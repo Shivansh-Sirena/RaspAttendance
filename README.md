@@ -39,16 +39,27 @@ RaspAttendance/
 
 ### 1. Installation & Environment Setup
 
+#### On Linux / Raspberry Pi:
 Run the automated setup script to install dependencies, initialize a virtual environment, and compile libraries:
 ```bash
 chmod +x setup.sh
 ./setup.sh
 ```
-The script uses `--system-site-packages` to inherit pre-compiled Debian binary libraries (like OpenCV, Pandas, and Flask), saving hours of compilation time on the Raspberry Pi.
-
-To activate the environment:
+To activate the virtual environment:
 ```bash
 source venv/bin/activate
+```
+
+#### On Windows:
+1. Ensure Python 3.8+ is installed and added to your system PATH.
+2. Ensure you have **Visual Studio C++ Build Tools** installed (required to compile `dlib` and `face-recognition`). You can download it from [Visual Studio Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) and select the **Desktop development with C++** workload.
+3. Open Command Prompt (`cmd`) in the project folder and run:
+```cmd
+setup.bat
+```
+To activate the virtual environment:
+```cmd
+venv\Scripts\activate
 ```
 
 ---
