@@ -33,7 +33,8 @@ logging.basicConfig(
 logger = logging.getLogger("AdminPortal")
 
 # Default Configurations
-DEFAULT_DB_PATH = "/home/darkninja/RaspAttendance/attendance_system.db"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+DEFAULT_DB_PATH = os.path.join(SCRIPT_DIR, "attendance_system.db")
 DEFAULT_IMAGE_DIR = "/home/pi/Student_Images/"
 DEFAULT_ADMIN_PASSWORD = "admin123"
 

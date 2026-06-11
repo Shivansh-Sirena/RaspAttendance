@@ -44,8 +44,14 @@ except ImportError:
 
 
 # Default Configurations
-DEFAULT_DB_PATH = "/home/darkninja/RaspAttendance/attendance_system.db"
-DEFAULT_IMAGE_DIR = "/home/pi/Student_Images/"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+DEFAULT_DB_PATH = os.path.join(SCRIPT_DIR, "attendance_system.db")
+
+# Cross-platform fallback for default image folder
+if os.path.exists("/home/pi/Student_Images/"):
+    DEFAULT_IMAGE_DIR = "/home/pi/Student_Images/"
+else:
+    DEFAULT_IMAGE_DIR = os.path.join(SCRIPT_DIR, "Student_Images")
 TOLERANCE_THRESHOLD = 0.45  # Stricter matching threshold to prevent false positives
 DEDUPLICATION_MINUTES = 20  # Log attendance once every 20 minutes per student/employee
 SYNC_INTERVAL_SECONDS = 10  # Sync with image directory every 10 seconds
